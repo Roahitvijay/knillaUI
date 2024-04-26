@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <form [formGroup]="contactForm" (ngSubmit)="save()">
+                <div class="mb-3">
+                  <label for="firstName" class="form-label">FirstName</label>
+                  <input type="text" class="form-control" id="firstName" formControlName="firstName">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="lastName" class="form-label">LastName</label>
+                  <input type="text" class="form-control" id="lastName" formControlName="lastName">
+                </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" formControlName="email">
+                  </div>
+                  <div class="mb-3">
+                    <label for="phoneNumber" class="form-label">PhoneNumber</label>
+                    <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+                  </div>
+                  <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="address" formControlName="address">
+                  </div>
+                  <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" formControlName="city"> 
+                  </div>
+                  <div class="mb-3">
+                    <label for="state" class="form-label">State</label>
+                    <input type="text" class="form-control" id="state" formControlName="state">
+                  </div>
+                  <div class="mb-3">
+                    <label for="country" class="form-label">Password</label>
+                    <input type="text" class="form-control" id="country" formControlName="country">
+                  </div>
+                  <div class="mb-3">
+                    <label for="postalCode" class="form-label">PostalCode</label>
+                    <input type="text" class="form-control" id="postalCode" formControlName="postalCode">
+                  </div>
+                
+                <button type="submit" class="btn btn-primary" [disabled]="!contactForm.valid">Submit</button>
+              </form>
+        </div>
+    </div>
+    
+</div>
+

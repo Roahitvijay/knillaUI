@@ -1,0 +1,109 @@
+<div class="container">
+    <table class="table" *ngIf="contacts && contacts.length>0">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">FirstName</th>
+            <th scope="col">LastName</th>
+            <th scope="col">Email</th>
+            <th scope="col">PhoneNumber</th>
+            <th scope="col">Address</th>
+            <th scope="col">City</th>
+            <th scope="col">State</th>
+            <th scope="col">Country</th>
+            <th scope="col">PostalCode</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let Contact of contacts">
+            <th >{{Contact.id}}</th>
+            <td>{{Contact.firstName}}</td>
+            <td>{{Contact.lastName}}</td>
+            <td>{{Contact.email}}</td>
+            <td>{{Contact.phoneNumber}}</td>
+            <td>{{Contact.address}}</td>
+            <td>{{Contact.city}}</td>
+            <td>{{Contact.state}}</td>
+            <td>{{Contact.country}}</td>
+            <td>{{Contact.postalCode}}</td>
+            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#UniqueModalId" (click)="GetContact(Contact.id)">
+              Edit
+            </button></td>
+            <td><button type="button" class="btn btn-danger" (click)="DeleteContact(Contact.id)">
+              Delete
+            </button></td>
+            
+          </tr>
+        </tbody>
+      </table>
+      <p *ngIf="!contacts||contacts.length==0">No Contacts Found</p>
+      <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="UniqueModalId" tabindex="-1" aria-labelledby="examplemodallabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="examplemodallabel">Edit</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="UpdateContact()" >
+          <div class="mb-3" hidden>
+            <label for="id" class="form-label">ID</label>
+            <input type="text" class="form-control" id="id" name="id" [(ngModel)]="selectedContact.id"  formcontrolname="firstname">
+            
+          </div>
+          <div class="mb-3">
+            <label for="firstname" class="form-label">firstname</label>
+            <input type="text" class="form-control" id="firstname" name="first" [(ngModel)]="selectedContact.firstName"  formcontrolname="firstname">
+            
+          </div>
+          <div class="mb-3">
+            <label for="lastname" class="form-label">lastname</label>
+            <input type="text" class="form-control" id="lastname" name="second" [(ngModel)]="selectedContact.lastName" formcontrolname="lastname">
+          </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">email</label>
+              <input type="email" class="form-control" id="email" name="third" [(ngModel)]="selectedContact.email" formcontrolname="email">
+            </div>
+            <div class="mb-3">
+              <label for="phonenumber" class="form-label">phonenumber</label>
+              <input type="text" class="form-control" id="phonenumber" name="fourth" [(ngModel)]="selectedContact.phoneNumber" formcontrolname="phonenumber">
+            </div>
+            <div class="mb-3">
+              <label for="address" class="form-label">address</label>
+              <input type="text" class="form-control" id="address" name="fifth" [(ngModel)]="selectedContact.address" formcontrolname="address">
+            </div>
+            <div class="mb-3">
+              <label for="city" class="form-label">city</label>
+              <input type="text" class="form-control" id="city" name="sixth" [(ngModel)]="selectedContact.city" formcontrolname="city"> 
+            </div>
+            <div class="mb-3">
+              <label for="state" class="form-label">state</label>
+              <input type="text" class="form-control" id="state" name="seven" [(ngModel)]="selectedContact.state" formcontrolname="state">
+            </div>
+            <!-- <div class="mb-3">
+              <label for="country" class="form-label">password</label>
+              <input type="text" class="form-control" id="country" name="eight" [(ngModel)]="selectedContact." formcontrolname="country">
+            </div> -->
+            <div class="mb-3">
+              <label for="postalcode" class="form-label">postalcode</label>
+              <input type="text" class="form-control" id="postalcode" name="nine" [(ngModel)]="selectedContact.postalCode" formcontrolname="postalcode">
+            </div>
+          
+          <button type="submit" class="btn btn-primary" [routerLink]="['contactlist']">Update</button>
+        </form>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>
+        <button type="button" class="btn btn-primary">save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+</div>
+
